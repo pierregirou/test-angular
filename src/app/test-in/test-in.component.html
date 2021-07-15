@@ -2,7 +2,6 @@
 <input class="inputT" type="text" [(ngModel)]="testTwoWay">
 <p>{{testTwoWay}}</p>
 
-
 <form  #formInscr ngFrom (ngSubmit)="onSubmit(formInscr)">
     <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Votre prénom" ngModel><br>
     <input type="text" name="nom" id="nom" class="form-control" placeholder="Votre nom" ngModel><br>
@@ -11,6 +10,8 @@
 <button type="" (click)="resetForm(formInscr)">RESET</button>
 
 
+
+<input type="text" placeholder="entre un fruit" [(ngModel)]="monFruitInput"><button (click)="addFruit()">ajouter</button>
 <ul>
     <li *ngFor="let fruit of myFruits; let i=index"> {{ i }} - {{ fruit }} <button (click)="deleteFruit(i)">supprimer</button></li>
 </ul>

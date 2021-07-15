@@ -19,4 +19,9 @@ fruitSubject = new Subject
     this.fruit.splice(idEvent,1)
      this.emitFruitSubject()
   }
+
+  add(fruit){
+    this.fruit.push(fruit)
+   this.emitFruitSubject()
+  }
 }

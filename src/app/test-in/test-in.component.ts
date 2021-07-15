@@ -16,7 +16,7 @@ testTwoWay: string = ''
 myFruits: any
 fruitSubscription : Subscription
 @Output() evenEmitDeletFruit = new EventEmitter()
-
+monFruitInput: string = ''
   constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
@@ -40,6 +40,11 @@ fruitSubscription : Subscription
 
   resetForm(form: NgForm){
     form.reset()
+  }
+
+  addFruit(){
+    this.dataService.add(this.monFruitInput)
+    this.monFruitInput = ''
   }
 
   deleteFruit(idfruit){
