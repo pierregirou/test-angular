@@ -18,4 +18,8 @@ export class AppComponent implements OnInit{
   getIdForDel(event){
     this.dataService.deleteFruit(event)
   }
+
+  getEventEmitterForNotify(event){
+    alert(event)
+  }
 }

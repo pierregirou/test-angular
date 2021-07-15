@@ -11,7 +11,6 @@ fruitSubject = new Subject
 
   constructor() {
     this.fruit = ['banane', 'pommes', 'abricots','framboise', 'fraise']
-    this.emitFruitSubject()
    }
 
   emitFruitSubject(){

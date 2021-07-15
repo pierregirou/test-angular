@@ -1,3 +1,2 @@
 <app-header></app-header>
-
-<app-test-in [tit]="title" (evenEmitDeletFruit)="getIdForDel($event)"></app-test-in>
+<app-test-in [tit]="title" (evenEmitDeletFruit)="getIdForDel($event)" (sendEventEmitter)="getEventEmitterForNotify($event)"></app-test-in>

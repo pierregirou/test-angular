@@ -19,7 +19,7 @@ fruitSubscription : Subscription
 monFruitInput: string = ''
 
   constructor(private dataService:DataService) { }
-
+ @Output() sendEventEmitter = new EventEmitter()
   ngOnInit(): void {
     this.monTit = this.tit
     this.testTwoWay = 'je suis pierre'
@@ -58,6 +58,9 @@ monFruitInput: string = ''
     console.log(event)
   }
 
+  sendEvent(){
+    this.sendEventEmitter.emit('Jes suis une notification')
+  }
   ngOnDestroy(){
     this.fruitSubscription.unsubscribe();
   }

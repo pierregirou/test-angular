@@ -21,3 +21,5 @@
 <ul>
     <li *ngFor="let fruit of myFruits; let i=index"> {{ i+1 }} - {{ fruit | uppercase }} <button (click)="deleteFruit(i)">supprimer</button></li>
 </ul>
+
+<button (click)='sendEvent()'>Send au notify</button>
