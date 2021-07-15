@@ -5,10 +5,13 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
+
 fruit : any[]
 fruitSubject = new Subject
+
   constructor() {
     this.fruit = ['banane', 'pommes', 'abricots','framboise', 'fraise']
+    this.emitFruitSubject()
    }
 
   emitFruitSubject(){
@@ -22,6 +25,6 @@ fruitSubject = new Subject
 
   add(fruit){
     this.fruit.push(fruit)
-   this.emitFruitSubject()
+    this.emitFruitSubject()
   }
 }

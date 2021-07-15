@@ -17,13 +17,15 @@ myFruits: any
 fruitSubscription : Subscription
 @Output() evenEmitDeletFruit = new EventEmitter()
 monFruitInput: string = ''
+
   constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
     this.monTit = this.tit
     this.testTwoWay = 'je suis pierre'
+
     this.fruitSubscription = this.dataService.fruitSubject.subscribe(
-      (data)=>{
+      (data: any)=>{
         this.myFruits = data
       })
       this.dataService.emitFruitSubject()
@@ -42,13 +44,18 @@ monFruitInput: string = ''
     form.reset()
   }
 
-  addFruit(){
+  addFruit(event){
+    console.log(event);
     this.dataService.add(this.monFruitInput)
     this.monFruitInput = ''
   }
 
   deleteFruit(idfruit){
     this.evenEmitDeletFruit.emit(idfruit)
+  }
+
+  detecterEvent(event: Event){
+    console.log(event)
   }
 
   ngOnDestroy(){

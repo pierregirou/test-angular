@@ -8,8 +8,10 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+
   subscribFruit: Subscription
-  countFruit: any;
+  countFruit: number //= 0;
+
   constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
@@ -17,6 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.countFruit = data.length
     })
   }
+
   ngOnDestroy(){
     this.subscribFruit.unsubscribe()
   }

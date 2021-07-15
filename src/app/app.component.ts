@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from './services/data.service';
 
 @Component({
@@ -6,12 +6,16 @@ import { DataService } from './services/data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'projetTest';
 
-  constructor(private daatService:DataService){}
+  constructor(private dataService:DataService){}
+
+  ngOnInit(){
+    this.dataService.emitFruitSubject()
+  }
 
   getIdForDel(event){
-    this.daatService.deleteFruit(event)
+    this.dataService.deleteFruit(event)
   }
 }

@@ -1,6 +1,10 @@
 
+
+<p>utilisation simple du ngModel</p>
 <input class="inputT" type="text" [(ngModel)]="testTwoWay">
 <p>{{testTwoWay}}</p>
+<br>
+<br>
 
 <form  #formInscr ngFrom (ngSubmit)="onSubmit(formInscr)">
     <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Votre prénom" ngModel><br>
@@ -8,11 +12,12 @@
     <button type="submit">ENVOYER</button>
 </form>
 <button type="" (click)="resetForm(formInscr)">RESET</button>
+<br>
+<br>
 
 
-
-<input type="text" placeholder="entre un fruit" [(ngModel)]="monFruitInput"><button (click)="addFruit()">ajouter</button>
+<p>mettre ajour la données danss toute l'app grace au subject</p>
+<input #entFruit type="text" placeholder="entre un fruit" [(ngModel)]="monFruitInput" (input)="detecterEvent($event.target.value)"><button (click)="addFruit(entFruit.value)">ajouter</button>
 <ul>
-    <li *ngFor="let fruit of myFruits; let i=index"> {{ i }} - {{ fruit }} <button (click)="deleteFruit(i)">supprimer</button></li>
+    <li *ngFor="let fruit of myFruits; let i=index"> {{ i+1 }} - {{ fruit | uppercase }} <button (click)="deleteFruit(i)">supprimer</button></li>
 </ul>
-
