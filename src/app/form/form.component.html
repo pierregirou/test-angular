@@ -1,0 +1,29 @@
+<p>
+    Bon, le choix est très simple, pour tous les formulaires, utilisez le ReactiveFormsModule! Pour les inputs perdus sans formulaire, boutons, switch et tout autre chose qui ne demande pas de validation de la valeur retournée, vous pouvez utiliser le FormsModule. Ce n’est pas plus compliquer que cela.
+    Comment Créer un Formulaire Reactif Angular
+    Pour créer un formulaire réactif, rien de plus facile. Vous utilisez le formBuilder d’Angular ou directement les formGroup avec les formControls:</p>
+
+    <h3>Chaque element de notre formulaire est un « FormGroup
+
+        Chaque « formGroup » peut contenir 1 ou plusieurs « FormControl »
+        Chaque « FormControl » contient une valeur par défaut et un system de validation.</h3>
+        <h1>1<sup>er</sup> formulaire</h1>
+
+    <form  [formGroup]="myForm" (ngSubmit)="onSbmit(f)" #f="ngForm">
+        <label for="nom">nom</label>
+        <input class="form-control" name="nom" id="nom" type="text" formControlName="nom" ngModel><br/>
+        <p *ngIf="myForm.controls.nom.errors">le nom est obligatoire</p>
+        <!-- <p *ngIf="formControleValid.nom.errors.maxlength">le nom doit comporter Max 10 caracteres</p> -->
+        <label for="prenom">prenom</label>
+        <input class="form-control" name="prenom" id="prenom" type="text" formControlName="prenom" ngModel><br/>
+        <input class="form-control" type="checkbox" name="cgv" id="cgv" formControlename="cgv" ngModel>CGV
+        <p>Remplissez le formulaire pour activer le bouton.</p><br/>
+        <p>Form value | json: {{ myForm.value | json}}</p>
+        <p>Form Status: {{ myForm.status }}</p>
+        <p>Form Valid: {{ myForm.valid }}</p>
+        <p>Form touched: {{ myForm.touched }}</p>
+        <p *ngIf="myForm.invalid" [ngStyle]="{'background-color':'red'}">Attention Formulaire invalide !!</p>
+        <button type="submit" [disabled]="myForm.invalid">ENVOYER</button>
+        <button type="reset" >RESET</button>
+    </form>
+

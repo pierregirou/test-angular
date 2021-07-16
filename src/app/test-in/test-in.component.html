@@ -8,7 +8,7 @@
 
 <form  #formInscr ngFrom (ngSubmit)="onSubmit(formInscr)">
     <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Votre prénom" ngModel><br>
-    <input type="text" name="nom" id="nom" class="form-control" placeholder="Votre nom" ngModel><br>
+    <input type="text" name="nom" id="nom" class="form-control" placeholder="Votre nom" ngModel (blur)="detectBlur($event)"><br>
     <button type="submit">ENVOYER</button>
 </form>
 <button type="" (click)="resetForm(formInscr)">RESET</button>
@@ -23,3 +23,6 @@
 </ul>
 
 <button (click)='sendEvent()'>Send au notify</button>
+
+
+<app-form></app-form>

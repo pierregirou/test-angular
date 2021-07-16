@@ -17,15 +17,17 @@ myFruits: any
 fruitSubscription : Subscription
 @Output() evenEmitDeletFruit = new EventEmitter()
 monFruitInput: string = ''
+@Output() sendEventEmitter = new EventEmitter()
 
   constructor(private dataService:DataService) { }
- @Output() sendEventEmitter = new EventEmitter()
+
   ngOnInit(): void {
     this.monTit = this.tit
     this.testTwoWay = 'je suis pierre'
 
     this.fruitSubscription = this.dataService.fruitSubject.subscribe(
       (data: any)=>{
+        console.log(data);
         this.myFruits = data
       })
       this.dataService.emitFruitSubject()
@@ -61,6 +63,13 @@ monFruitInput: string = ''
   sendEvent(){
     this.sendEventEmitter.emit('Jes suis une notification')
   }
+
+  
+  detectBlur(event){
+    console.log(event)
+  }
+
+
   ngOnDestroy(){
     this.fruitSubscription.unsubscribe();
   }

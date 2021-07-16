@@ -9,19 +9,21 @@ import { DataService } from '../services/data.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  subscribFruit: Subscription
+  subscribFruitLength: Subscription
   countFruit: number //= 0;
 
   constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
-    this.subscribFruit = this.dataService.fruitSubject.subscribe((data: any)=>{
-      this.countFruit = data.length
+    this.subscribFruitLength = this.dataService.lengthFruitSubject.subscribe((data: any)=>{
+      console.log(data)
+      this.countFruit = data
     })
+    this.dataService.emitLengthOfFruits()
   }
 
   ngOnDestroy(){
-    this.subscribFruit.unsubscribe()
+    this.subscribFruitLength.unsubscribe()
   }
 
 }
